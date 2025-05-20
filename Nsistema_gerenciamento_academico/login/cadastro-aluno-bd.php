@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ]);
 
         echo "<p>Aluno cadastrado com sucesso!</p>";
-        echo '<button onclick="window.location.href=\'menu-aluno.html\'">Voltar para o Menu</button>';
+        echo '<button onclick="window.location.href=\'../index.php\'">Voltar para o Menu</button>';
 
     } catch (PDOException $e) {
     echo "Erro ao cadastrar: " . $e->getMessage();

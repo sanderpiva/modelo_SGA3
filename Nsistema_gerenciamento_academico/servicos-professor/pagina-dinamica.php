@@ -87,6 +87,10 @@ function obterImagemAssociada($titulo) {
         .botao-voltar:hover {
             background-color: #005fa3;
         }
+
+        p{
+            text-align: justify;
+        }
     </style>
 </head>
 <body>
@@ -99,7 +103,7 @@ function obterImagemAssociada($titulo) {
             <img src="<?= obterImagemAssociada($conteudo['titulo']) ?>" alt="Imagem relacionada ao conteúdo">
             <p><?= nl2br(htmlspecialchars($conteudo['descricao'])) ?></p>
         
-            <?php if($conteudo['titulo'] == 'A progressao gemoetrica'): ?>
+            <?php if($conteudo['titulo'] == 'A progressao geometrica'): ?>
                 <a href="exercicio-pg.php">Exercicio demonstrativo</a>                
             <?php else: ?>
                 <p>IMPORTANTE! Não há exercicio demonstrativo disponivel</p>

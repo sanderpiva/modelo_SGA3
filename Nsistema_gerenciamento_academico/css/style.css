@@ -1,3 +1,48 @@
+.conteudo-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fdfdfd;
+            text-align: center;
+        }
+        .conteudo-container img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .botao-voltar {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #0077cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .botao-voltar:hover {
+            background-color: #005fa3;
+        }
+
+
+/* Estilos para o novo contêiner que vai gerar as colunas */
+.content-columns-wrapper {
+    display: flex; /* Habilita o Flexbox para este contêiner */
+    justify-content: center; /* Centraliza a imagem e o formulário na página */
+    align-items: flex-start; /* Alinha os itens (imagem e formulário) ao topo */
+    gap: 40px; /* Adiciona um espaço de 40px entre a imagem e o formulário */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas menores */
+    padding: 20px 0; /* Um pouco de padding para o contêiner */
+}
+
+/* Estilos para a div da imagem - usando sua classe existente */
+.img_home {
+    flex: 1; /* Permite que o item cresça para ocupar espaço */
+    max-width: 500px; /* Define uma largura máxima para a coluna da imagem */
+    max-height: 800px; /* Define uma altura máxima para a coluna da imagem */
+    text-align: center; /* Centraliza o conteúdo (a imagem) dentro desta coluna */
+}
+
 /* Estilos para o container do formulário de login do professor */
 .form_container {
     background-color: white; /* Fundo branco para o formulário */
@@ -201,9 +246,24 @@ h1{
 
 .img_home{
     
-    text-align: center;
+    flex: 1; /* Permite que o item cresça para ocupar espaço */
+    max-width: 500px; /* Define uma largura máxima para a coluna da imagem */
+    /* A max-height: 800px; aqui limita a altura da div, não a imagem diretamente.
+       Se a imagem tiver max-height menor, a div pode ficar com espaço em branco abaixo se o conteúdo for menor. */
+    max-height: 800px; /* Pode manter se quiser limitar a altura da div do contêiner */
+    text-align: center; /* Centraliza o conteúdo (a imagem) dentro desta coluna */
+    
     
 }
+
+.img_dimens{
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura da sua div pai (500px) */
+    height: auto;    /* Permite que a altura se ajuste automaticamente para manter a proporção */
+    max-height: 300px; /* <--- ESSA É A LINHA PRINCIPAL: Limita a altura MÁXIMA da imagem a 300px */
+    display: block; /* Remove o espaço extra abaixo da imagem */
+    margin: 0 auto; /* Centraliza a imagem horizontalmente dentro de .img_home */
+}
+
 table {
     width: 100%;
     border-collapse: collapse;

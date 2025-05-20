@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sistema Academico</title>
-    <meta charset="utf=8">
-    <link rel="stylesheet" href="css/style.css">
+<title>Sistema Academico</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/style.css">
 </head>
-
-<body class="servicos_forms">
-    
-    <h1>SISTEMA ACADEMICO: IRACEMA RODRIGUES</h1>
-    
-    <div class = "img_home">
-        
-        <img src="img/home2.jpg" alt="Foto Iracema Rodrigues">
-    
-    </div>
-    <div class="btn_home"><br>
-        <button  class="buttonInicioProfessor" onclick="window.location.href='login/menu-professor.html'">PROFESSOR</button>
-        <button  class="buttonInicioAluno" onclick="window.location.href='login/menu-aluno.html'">ALUNO</button>
-        
-    </div><br><br> 
-</body>
-<footer>
-    <p>Desenvolvido por Juliana e Sander</p>
+<body>
+<h1>SISTEMA ACADEMICO: IRACEMA RODRIGUES</h1>
+<div class="content-columns-wrapper">
+<div class="img_home">
+<img class="img_dimens" src="img/home2.jpg" alt="Foto Iracema Rodrigues">
+</div>
+<div class="form_container">
+<form class="form" method="post" action="login/verifica-login.php">
+<h2>Login</h2>
+<label for="login">Login:</label>
+<input type="text" name="login" id="login" required>
+<label for="senha">Senha:</label>
+<input type="password" name="senha" id="senha" required>
+<button type="submit">Login</button>
+</form>
+<div class="cadastro-links" style="margin-top: 20px; text-align: center;">
+<p>Não tem cadastro? Crie sua conta:</p>
+<a href="login/cadastro-professor.php">Cadastrar como Professor</a> |
+<a href="login/cadastro-aluno.php">Cadastrar como Aluno</a>
+</div>
+</div>
+</div>
+<footer><hr><hr><hr><hr><hr>
+<p>Desenvolvido por Juliana e Sander</p>
 </footer>
-
 </html>
