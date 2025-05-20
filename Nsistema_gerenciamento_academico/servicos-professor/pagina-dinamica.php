@@ -42,9 +42,9 @@ function obterImagemAssociada($titulo) {
     $titulo_lower = strtolower($titulo);
 
     if (strpos($titulo_lower, 'pa') !== false) {
-        return 'img/pa.png';
+        return 'img/i_pa.png';
     } elseif (strpos($titulo_lower, 'pg') !== false) {
-        return 'img/pg.png';
+        return 'img/i_pg.png';
     } elseif (strpos($titulo_lower, 'matriz') !== false) {
         return 'img/matriz.png';
     } elseif (strpos($titulo_lower, 'função') !== false || strpos($titulo_lower, 'funcao') !== false) {
@@ -104,7 +104,9 @@ function obterImagemAssociada($titulo) {
             <p><?= nl2br(htmlspecialchars($conteudo['descricao'])) ?></p>
         
             <?php if($conteudo['titulo'] == 'A progressao geometrica'): ?>
-                <a href="exercicio-pg.php">Exercicio demonstrativo</a>                
+                <a href="exercicio-pg.php">Exercicio demonstrativo</a> 
+            <?php elseif($conteudo['titulo'] == 'A progressao aritmetica'): ?>
+                <a href="exercicio-pa.php">Exercicio demonstrativo</a>               
             <?php else: ?>
                 <p>IMPORTANTE! Não há exercicio demonstrativo disponivel</p>
             <?php endif; ?>
@@ -116,7 +118,10 @@ function obterImagemAssociada($titulo) {
 
         <?php endif; ?><br>
 
-        <a class="botao-voltar" href="dashboard-alunos-dinamico.php">← Finalizar</a>
+        <a class="botao-voltar" href="dashboard-alunos-dinamico.php">← Finalizar</a> 
     </div>
-</body>
+</body><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<footer>
+        <p style="text-align: center;">Desenvolvido por Juliana e Sander</p>
+</footer>
 </html>

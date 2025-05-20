@@ -25,7 +25,8 @@ if (isset($_POST['calcular_pg'])) {
         $passos_pg = $passos;
 
         // Opcional: Definir status na sessão ao calcular (se necessário para outras páginas)
-        // $_SESSION['pg_status'] = 1;
+        // Cuidado pois o comando a seguir afeta o Algebrando: Estatico
+        //$_SESSION['pg_status'] = 1;
     } else {
         // Mensagem de erro para o usuário
         $resultado_pg = "<p style='color: red;'>Por favor, preencha todos os campos para calcular a PG.</p>";

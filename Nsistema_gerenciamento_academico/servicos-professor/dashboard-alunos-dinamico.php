@@ -106,7 +106,13 @@ if (isset($_SESSION['turma_selecionada']) && isset($_SESSION['disciplina_selecio
     }
     ?>
     <div>
+        <a class="botao-voltar" href="prova-dinamica">Prova</a>
+    </div><hr><hr>
+    <div>
         <a href="selecao-dashboard-dinamico.php">Voltar</a>
     </div>
 </body>
+<footer>
+    <p>Desenvolvido por Juliana e Sander</p>
+    </footer>
 </html>
