@@ -109,7 +109,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
         }
 
-        $sqlAluno = "SELECT id_aluno, nome, email, senha FROM aluno WHERE email = :login";
+        $sqlAluno = "SELECT a.id_aluno, a.nome, a.email, a.senha, t.nomeTurma
+             FROM aluno a
+             JOIN turma t ON a.Turma_id_turma = t.id_turma
+             WHERE a.email = :login";
         $stmtAluno = $conexao->prepare($sqlAluno);
         $stmtAluno->bindParam(':login', $login, PDO::PARAM_STR);
         $stmtAluno->execute();
@@ -126,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['id_usuario'] = $aluno['id_aluno'];
                 $_SESSION['nome_usuario'] = $aluno['nome'];
                 $_SESSION['email_usuario'] = $aluno['email'];
-
+                $_SESSION['nome_turma'] = $aluno['nomeTurma']; // Armazena o nome da turma do aluno
                 // Redireciona para a página de seleção do aluno
                 header("Location: login-selecao-aluno.php?sucesso=1");
                 exit(); // Interrompe a execução após o redirecionamento

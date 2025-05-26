@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Função para resetar os status da sessão antes de redirecionar
+// Função para resetar os status da sessão
 function resetStatus() {
     $_SESSION['pa_status'] = 0;
     $_SESSION['pg_status'] = 0;
@@ -9,9 +9,24 @@ function resetStatus() {
     $_SESSION['proporcao_status'] = 0;
 }
 
+// INICIALIZAÇÃO DOS STATUS DA SESSÃO SE ELES NÃO EXISTIREM
+// Isso garante que as variáveis existam antes de serem lidas, evitando o erro "Undefined index".
+if (!isset($_SESSION['pa_status'])) {
+    $_SESSION['pa_status'] = 0;
+}
+if (!isset($_SESSION['pg_status'])) {
+    $_SESSION['pg_status'] = 0;
+}
+if (!isset($_SESSION['porcentagem_status'])) {
+    $_SESSION['porcentagem_status'] = 0;
+}
+if (!isset($_SESSION['proporcao_status'])) {
+    $_SESSION['proporcao_status'] = 0;
+}
+
 // Se o botão "Voltar Home Page" for clicado, reseta os status e redireciona
 if (isset($_POST['reset_home'])) {
-    resetStatus();
+    resetStatus(); // Isso redefinirá todos para 0
     header("Location: ../index.php");
     exit();
 }
@@ -31,7 +46,8 @@ if (isset($_POST['reset_home'])) {
                 <img src="../img/i_pa.png" alt="img1">
             </a>
             <?php
-                echo isset($_SESSION['pa_status']) && $_SESSION['pa_status'] == 1 ? '<img class="check" src="../img/checked1.png" alt="Imagem Status 1">' : "Não visto";
+                // Agora, $_SESSION['pa_status'] sempre existirá
+                echo $_SESSION['pa_status'] == 1 ? '<img class="check" src="../img/checked1.png" alt="Imagem Status 1">' : "Não visto";
             ?>
         </div>
         <div class="card">
@@ -39,7 +55,7 @@ if (isset($_POST['reset_home'])) {
                 <img src="../img/i_pg.png" alt="img1">
             </a>
             <?php
-                echo isset($_SESSION['pg_status']) && $_SESSION['pg_status'] == 1 ? '<img class="check" src="../img/checked1.png" alt="Imagem Status 1">' : "Não visto";
+                echo $_SESSION['pg_status'] == 1 ? '<img class="check" src="../img/checked1.png" alt="Imagem Status 1">' : "Não visto";
             ?>
         </div>
         <div class="card">
@@ -47,7 +63,7 @@ if (isset($_POST['reset_home'])) {
                 <img src="../img/i_porcentagem.png" alt="img1">
             </a>
             <?php
-                echo isset($_SESSION['porcentagem_status']) && $_SESSION['porcentagem_status'] == 1 ? '<img class="check" src="../img/checked1.png" alt="Imagem Status 1">' : "Não visto";
+                echo $_SESSION['porcentagem_status'] == 1 ? '<img class="check" src="../img/checked1.png" alt="Imagem Status 1">' : "Não visto";
             ?>
         </div>
         <div class="card">
@@ -55,13 +71,14 @@ if (isset($_POST['reset_home'])) {
                 <img src="../img/i_proporcao.png" alt="img1">
             </a>
             <?php
-                echo isset($_SESSION['proporcao_status']) && $_SESSION['proporcao_status'] == 1 ? '<img class="check" src="../img/checked1.png" alt="Imagem Status 1">' : "Não visto";
+                echo $_SESSION['proporcao_status'] == 1 ? '<img class="check" src="../img/checked1.png" alt="Imagem Status 1">' : "Não visto";
             ?>
         </div>
     </div><br><br><br>
 
     <div class="btn_prova">
         <?php
+            // Agora, estas variáveis sempre terão um valor (0 ou 1)
             if ($_SESSION['pa_status'] == 1 && $_SESSION['pg_status'] == 1 &&
                 $_SESSION['porcentagem_status'] == 1 && $_SESSION['proporcao_status'] == 1) {
 

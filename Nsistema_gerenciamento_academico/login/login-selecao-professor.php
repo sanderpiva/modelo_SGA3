@@ -10,6 +10,17 @@
     
 <?php
 
+    session_start(); // <--- ESSENCIAL: Inicia a sessão para acessar $_SESSION
+
+    // Verifica se o usuário está logado e se é um professor
+    // Esta é a verificação de controle de acesso.
+    if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true || $_SESSION['tipo_usuario'] !== 'professor') {
+    // Se não estiver logado, não for um professor, ou a sessão não estiver correta,
+    // redireciona para a página de login ou uma página de erro/acesso negado.
+    header("Location: ../index.php"); // Ou para uma página de login específica
+    exit();
+    }
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if (isset($_POST['tipo_calculo'])) {
